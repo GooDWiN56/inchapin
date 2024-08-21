@@ -1,0 +1,13 @@
+@import 'mixins';
+@import 'variables';
+
+.select{
+    .css-13cymwt-control{
+        background: $primary-color;
+        color: $white-color;
+        font-size: 13px;
+    }
+    .css-hlgwow{
+        padding: 5px 0 5px 20px;
+    }
+}

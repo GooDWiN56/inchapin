@@ -1,0 +1,109 @@
+@import "mixins";
+@import "variables";
+.wrap {
+  position: relative;
+  padding: 15px 0 0;
+  width: 100%;
+  margin-top: -15px;
+  margin-bottom: 45px;
+}
+
+.input {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid rgba($color: $black-color, $alpha: 0.2);
+  outline: 0;
+  font-size: 16px;
+  color: $black-color;
+  padding: 4px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .label {
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 16px;
+  color: $black-color;
+}
+
+.input:focus {
+  ~ .label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 14px;   
+  }
+}
+/* reset input */
+.input{
+  &:required,&:invalid { box-shadow:none; }
+}
+@include bigscreen(){
+    .wrap{
+        margin-bottom: 55px;
+    }
+    .input{
+        font-size: 17px; 
+        &:focus {
+            ~ .label {
+              font-size: 15px;   
+            }
+        }
+    }
+    .label{
+        font-size: 17px; 
+    }
+}
+@include smallscreen(){
+    .input{
+        font-size: 14px; 
+        &:focus {
+            ~ .label {
+              font-size: 12px;   
+            }
+        }
+    }
+    .label{
+        font-size: 14px; 
+    }
+}
+@include tablet(){
+    .input{
+        font-size: 14px; 
+        &:focus {
+            ~ .label {
+              font-size: 12px;   
+            }
+        }
+    }
+    .label{
+        font-size: 14px; 
+    }
+}
+@include mobile(){
+    .input{
+        font-size: 11px; 
+        &:focus {
+            ~ .label {
+              font-size: 9px;   
+            }
+        }
+    }
+    .label{
+        font-size: 11px; 
+    }
+}

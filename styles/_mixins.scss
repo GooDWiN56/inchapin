@@ -1,0 +1,61 @@
+
+
+@mixin container{
+    width: 95%;
+    max-width: 1760px;
+    margin: 0 auto;
+}
+@mixin flex{
+    display: flex;
+}
+@mixin flex-center{
+    @include flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-column{
+    display: flex;
+    flex-direction: column;
+}
+@mixin span-color{
+    span{
+        color: $primary-color;
+    }
+}
+@mixin sizes($size){
+    width: $size;
+    height: $size;
+}
+@mixin sizeWH($width, $height){
+    width: $width !important;
+    height: $height !important;
+}
+@mixin caclposition($size){
+    width: $size;
+    height: $size;
+    top: calc(50% - $size/2);
+    left: calc(50% - $size/2);
+}
+@mixin borderradius{
+    border-radius: 50%;
+}
+@mixin bigscreen{
+    @media (min-width: 1770px){
+         @content;
+    }
+}
+@mixin smallscreen{
+    @media (min-width: 1024px) and (max-width: 1280px){
+         @content;
+    }
+}
+@mixin tablet{
+    @media (min-width: 768px) and (max-width: 1023px){
+         @content;
+    }
+}
+@mixin mobile{
+    @media (max-width: 767px){
+         @content;
+    }
+}

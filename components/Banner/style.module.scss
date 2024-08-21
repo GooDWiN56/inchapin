@@ -1,0 +1,112 @@
+@import 'mixins';
+@import 'variables';
+
+@mixin widthImg($width){
+    width:  $width !important;
+}
+.wrap{
+    height: 100vh;
+}
+.flex{
+    @include flex-column;
+    @include container;
+    height: 100%;
+}
+.image{
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+    img{
+        object-fit: cover;
+    }
+}
+.desc{
+    @include flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 40px;
+    .slogan{
+        color: $primary-color;
+        font-size: 26px;
+    }
+    .name{
+        position: relative;
+        img{
+            position: relative !important;
+            @include widthImg(717px);
+            height: auto !important;
+        }
+    }
+}
+
+
+@include bigscreen(){
+    .desc{
+        padding-top: 50px;
+        
+        .slogan{
+            font-size: 31px;
+        }
+        .name{
+            img{
+                @include widthImg(862px);
+            }
+        }
+    }
+    
+}
+@include smallscreen(){
+    .desc{
+        padding-top: 30px;
+        .slogan{
+            font-size: 19px;
+        }
+        .name{
+            img{
+                @include widthImg(553px);
+            }
+        }
+    }
+    
+}
+@include tablet(){
+    .desc{
+        @include flex-column;
+        padding-top: 40px;
+        align-items: flex-start;
+        .slogan{
+            font-size: 26px;
+            margin-bottom: 40px;
+        }
+        .name{
+            width: 100%;
+            img{
+                @include widthImg(100%);
+            }
+        }
+    }
+    
+}
+@include mobile(){
+    .wrap{
+        height: auto;
+    }
+    .image{
+        height: 313px;
+    }
+    .desc{
+        @include flex-column;
+        padding-top: 20px;
+        align-items: flex-start;
+        .slogan{
+            font-size: 19px;
+            margin-bottom: 20px;
+        }
+        .name{
+            img{
+                @include widthImg(100%);
+            }
+        }
+    }
+    
+}

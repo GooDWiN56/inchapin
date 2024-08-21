@@ -1,0 +1,104 @@
+@import 'mixins';
+@import 'variables';
+@mixin mobileCall{
+    button{
+        font-size: 0;
+        @include sizes(41px);
+        border: 1px solid $primary-color;
+        @include borderradius;
+        background: url(/assets/image/phone.svg) no-repeat center;
+        background-size: 14px;
+    }
+}
+.head{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $white-color;
+    z-index: 1;
+}
+.wrap{
+    @include flex;
+    @include container;
+    align-items: center;
+    padding: 30px 0;
+}
+.contacts{
+    @include flex;
+    align-items: center;
+}
+.phone{
+    margin-right: 40px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.call{
+    button{
+        color: $primary-color;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: .07em;
+        overflow: hidden;
+        &:hover>span{
+            display: block;
+            animation: 1s hoverText  ease-in-out;
+        }
+    }
+}
+@keyframes hoverText {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    51%{
+        transform: translateY(15px)
+    }
+    100%{
+        transform: translateY(0px)
+    }
+  }
+
+@include bigscreen(){
+    .wrap {
+        padding: 40px 0;
+    }
+    .call, .phone{
+        button{
+            font-size: 15px;
+        }
+    }
+}
+@include tablet(){
+    .phone{
+        display: none;
+    }
+    .contacts{
+        order: 1;
+    }
+    .logo{
+        order: 2;
+    }
+    .select{
+        order: 3;
+    }
+    .call{
+        @include mobileCall;
+    }
+}
+@include mobile(){
+    .wrap {
+        padding: 20px 0;
+    }
+    .phone, .select{
+        display: none;
+    }
+    .contacts{
+        order: 2;
+    }
+    .call{
+        @include mobileCall;
+    }
+}

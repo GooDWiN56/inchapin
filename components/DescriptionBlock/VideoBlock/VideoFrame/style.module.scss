@@ -1,0 +1,34 @@
+@import 'mixins';
+@import 'variables';
+.wrap{
+    @include flex-center;
+    height: 100%;
+    background-color: $white-color;
+    video{
+        width: 80%;
+        height: 80%;
+    }
+}
+.nodisplay{
+    display: none;
+}
+.stop{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    background: $white-color;
+    width: 26px;
+    height: 26px;
+    background: url(/assets/image/close.svg) no-repeat center;
+    background-size: contain;
+    border:none;
+    cursor: pointer;
+}
+
+@include mobile(){
+    .wrap{
+        video{
+            width: 100%;
+        }
+    }
+}

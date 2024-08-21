@@ -1,0 +1,25 @@
+@import 'mixins';
+.logo{
+    position: relative;
+    width: 155px;
+    height: 25px;
+    margin: 0 auto;
+}
+@include bigscreen(){
+    .logo{
+        width: 181px;
+        height: 30px;
+    }
+}
+@include tablet(){
+    .logo{
+        order: 2;
+    }
+}
+@include mobile(){
+    .logo{
+        width: 130px;
+        height: 21px;
+        order: 1;
+    }
+}
