@@ -11,8 +11,8 @@ interface IFormDialog {
 }
 
 const FormDialog: FC<IFormDialog> = ({ open, close }) => {
-  if (!open) return <></>;
   useEffect(() => {
+    // other code
     const keyDownHandler = (event: KeyboardEvent) => {
       console.log("User pressed: ", event.key);
 
@@ -27,7 +27,9 @@ const FormDialog: FC<IFormDialog> = ({ open, close }) => {
     return () => {
       document.removeEventListener("keydown", keyDownHandler);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  if (!open) return <></>;
   return (
     <div className={open ? styles.wrap : styles.noopen}>
       <CloseButton close={close} />

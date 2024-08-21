@@ -1,16 +1,16 @@
 "use client";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import Image from "next/image";
 
 const Banner = () => {
-  const [headH, setHeadH] = useState<number | undefined>(
-    document.getElementById("header")?.clientHeight
-  );
-  const [width, setWidth] = useState(window.innerWidth);
-  window.addEventListener("resize", function () {
-    setWidth(window.innerWidth);
-  });
+  const [headH, setHeadH] = useState<number | undefined>(0);
+  const [width, setWidth] = useState(0);
+  useEffect(() => {
+    window.addEventListener("resize", function () {
+      setWidth(window.innerWidth);
+    });
+  }, [width]);
 
   useEffect(() => {
     setHeadH(document.getElementById("header")?.clientHeight);

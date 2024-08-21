@@ -4,21 +4,21 @@ import styles from "./style.module.scss";
 import CloseButton from "@/components/CloseButton";
 
 interface IVideoFrame {
-  myRef: LegacyRef<HTMLVideoElement> | undefined;
+  myRef: any;
   play: boolean;
   stop: () => void;
 }
 
 const VideoFrame: FC<IVideoFrame> = ({ myRef, play, stop }) => {
-  if (!play) return <></>;
   useEffect(() => {
+    // other code
     play && myRef?.current?.play();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [play]);
 
   useEffect(() => {
-    const keyDownHandler = (event: KeyboardEvent) => {
-      console.log("User pressed: ", event.key);
-
+    // other code
+    const keyDownHandler = (event: any) => {
       if (event.key === "Escape") {
         event.preventDefault();
         stop();
@@ -30,7 +30,9 @@ const VideoFrame: FC<IVideoFrame> = ({ myRef, play, stop }) => {
     return () => {
       document.removeEventListener("keydown", keyDownHandler);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  if (!play) return <></>;
   return (
     <div className={play ? styles.wrap : styles.nodisplay}>
       <video

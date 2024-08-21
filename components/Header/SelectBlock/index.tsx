@@ -1,21 +1,5 @@
-import { ColourOption, colourOptions } from "../data";
 import Select, { StylesConfig } from "react-select";
 import styles from "./style.module.scss";
-
-const dot = (color = "transparent") => ({
-  alignItems: "center",
-  display: "flex",
-
-  ":before": {
-    backgroundColor: color,
-    borderRadius: 10,
-    content: '" "',
-    display: "block",
-    marginRight: 8,
-    height: 10,
-    width: 10,
-  },
-});
 
 const colourStyles: StylesConfig = {
   control: (styles) => ({
@@ -24,6 +8,9 @@ const colourStyles: StylesConfig = {
     color: "#fff",
     borderRadius: "30px",
     border: "none",
+    cursor: "pointer",
+    minHeight: "auto",
+    padding: "5px 0",
   }),
 
   input: (styles) => ({ ...styles, color: "#fff", paddingLeft: "10px" }),
@@ -43,13 +30,17 @@ const colourStyles: StylesConfig = {
     "& svg": { display: "none" },
   }),
 
-  singleValue: (styles, { data }) => ({
+  singleValue: (styles) => ({
     ...styles,
     color: "#fff",
     fontSize: "13px",
     fontWeight: 400,
     letterSpacing: 1,
     paddingLeft: "10px",
+  }),
+  menu: (styles) => ({
+    ...styles,
+    top: "34px",
   }),
 };
 
@@ -62,7 +53,7 @@ const SelectBlock = () => {
   return (
     <Select
       options={options}
-      className={styles.select}
+      className={styles.select2}
       placeholder="Выбрать квартиру"
       styles={colourStyles}
     />

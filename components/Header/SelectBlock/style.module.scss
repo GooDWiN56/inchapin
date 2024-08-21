@@ -1,7 +1,7 @@
 @import 'mixins';
 @import 'variables';
 
-.select{
+.select2{
     .css-13cymwt-control{
         background: $primary-color;
         color: $white-color;
@@ -10,4 +10,26 @@
     .css-hlgwow{
         padding: 5px 0 5px 20px;
     }
+    &:hover div[id="react-select-2-placeholder"]{
+        overflow: hidden;
+        animation: 1s hoverText  ease-in-out;
+    }
 }
+.selectAnim{
+    animation: 1s hoverText  ease-in-out;
+}
+
+@keyframes hoverText {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    51%{
+        transform: translateY(15px)
+    }
+    100%{
+        transform: translateY(0px)
+    }
+  }
