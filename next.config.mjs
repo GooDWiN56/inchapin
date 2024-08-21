@@ -9,8 +9,6 @@ const sassOptions = {
 
 const nextConfig = {
   basePath: isProd ? "/inchapin/" : "",
-  output: "export",
-  distDir: "dist",
   sassOptions,
 };
 
