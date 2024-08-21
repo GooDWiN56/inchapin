@@ -2,6 +2,7 @@
 import { use, useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import Image from "next/image";
+import { config } from "process";
 
 const Banner = () => {
   const [headH, setHeadH] = useState<number | undefined>(0);
@@ -15,7 +16,6 @@ const Banner = () => {
   useEffect(() => {
     setHeadH(document.getElementById("header")?.clientHeight);
   }, [width]);
-
   return (
     <div style={{ paddingTop: `${headH}px` }} className={styles.wrap}>
       <div className={styles.flex}>
