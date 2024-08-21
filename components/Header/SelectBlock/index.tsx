@@ -10,6 +10,7 @@ const colourStyles: StylesConfig = {
     border: "none",
     cursor: "pointer",
     minHeight: "auto",
+    overflow: "hidden",
     padding: "5px 0",
   }),
 
